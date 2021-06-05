@@ -20,7 +20,7 @@ install driver <name>      -- installing driver database for gorm package eg:mys
 install config <name>      -- create configuratiion file with driver name for gorm
 
 create :
-create entity <name>       -- for creating all files with entity name
+create entity <name>       -- for creating all files with entity name (repository, service, handler, model)
 create repo-crud <name>    -- for create syntax CRUD repository with entity name
 create service-crud <name> -- for create syntax CRUD service with entity name
 create auth                -- for create syntax auth service
@@ -136,7 +136,7 @@ func Command() {
 			} else if split[1] == "middleware" {
 				createDir.CreateDirMiddleware()
 
-				createFile.CreateMiddleware(initNameProject)
+				createFile.CreateMiddleware()
 				continue
 			} else {
 				fmt.Println("please insert a specific 'create' command ")

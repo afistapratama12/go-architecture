@@ -22,7 +22,7 @@ type CreateFile interface {
 	CreateCRUDService()
 
 	CreateAuthService()
-	CreateMiddleware(nameMod string)
+	CreateMiddleware()
 }
 
 type createFile struct {
@@ -233,8 +233,8 @@ func (c *createFile) CreateAuthService() {
 	fmt.Println("success create auth service", c.dir)
 
 }
-func (c *createFile) CreateMiddleware(nameMod string) {
-	var data = c.dict.DictMiddleware(nameMod)
+func (c *createFile) CreateMiddleware() {
+	var data = c.dict.DictMiddleware()
 
 	err := c.CreateFile(c.path+"/middleware/middleware.go", data)
 

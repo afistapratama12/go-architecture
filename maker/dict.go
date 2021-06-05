@@ -20,7 +20,7 @@ type Dict interface {
 	DictCRUDService(name string, namePascal string) string
 
 	DictAuthService() string
-	DictMiddleware(initMod string) string
+	DictMiddleware() string
 }
 
 type dict struct {
@@ -358,7 +358,7 @@ func (s *jwtService) ValidateToken(encodedToken string) (*jwt.Token, error) {
 `)
 }
 
-func (d *dict) DictMiddleware(initMod string) string {
+func (d *dict) DictMiddleware() string {
 	return fmt.Sprintf(`package middleware
 
 import (
